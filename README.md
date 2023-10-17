@@ -15,20 +15,20 @@ Ubuntu 22.04 + Microsoft Vs Code + EIDE + SDCC Compiler.
 
 ### PIN Assignment:
 
-P1 :
-	8 pcs LED堆疊顯示
+P1 : 8 pcs LED堆疊顯示
 
-P2.0~3 :
-	4 digits  7segments display switch
+P2.0~3 : 4 digits  7segments display switch
 
-P0 :
-	4 digits  7segments display
+P0 : 4 digits  7segments display
 
+P3.3 : TxD
 
-P3_6 = 0;//蜂鳴器致動
+P3.6 : Buzzer 
 
 #define IR_NEC_PIN    P3_3 //紅外線接收器連接腳位,INT1;P3_2 , INT0
 
 ### Porting method:
 
 python ~/project/tools/stcgal.py -P stc89 ir_decode.hex 
+
+### TX output baud rate: 9600 bps

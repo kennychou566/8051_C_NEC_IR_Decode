@@ -28,3 +28,7 @@ P0 :
 P3_6 = 0;//蜂鳴器致動
 
 #define IR_NEC_PIN    P3_3 //紅外線接收器連接腳位,INT1;P3_2 , INT0
+
+### Porting method:
+
+python ~/project/tools/stcgal.py -P stc89 ir_decode.hex 

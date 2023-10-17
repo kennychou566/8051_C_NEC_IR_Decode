@@ -1,0 +1,26 @@
+//#pragma oe db pw(80) SM SB CD
+#include <8052.h>
+#include <lint.h>
+#include <delay.h>
+#include <STC89xx.h>
+
+//unsigned char sstbl[]= {0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
+//unsigned char sstbl[]= {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71,0x40};
+unsigned char sstbl[]={0x6f,0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x40,0x00};
+//建立資料表 sstbl (顯示之數字)
+//unsigned char loc[]={0,0,0x10,0,0,0xc0};//建立資料表 loc(掃描線)
+unsigned char loc[]={8,1,2,3,4,5,6,7};
+
+void main(void)
+{
+    char i; //宣告字元變數i (代表要顯示之數值)
+    i=0; //令i等於0
+    for(;;) {
+        P1=0xff;// 關閉七段顯示器
+        P2=sstbl[i+1]; //取得資料表 stb] 第 1+1 筆資料並輸出至PO (將數值顯示於LED 上)
+        P1=loc[i++];  // 掃瞄第1個七段顯示器
+        if(i >=8)   // 若 1 大於等於4 則
+            i=0;    //令i=0
+        delay_ms(5); // 呼叫延遲1 毫秒副程式
+    }
+}
